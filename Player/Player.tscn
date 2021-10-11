@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://ddfeu07uca7yj"]
+
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_ylvns"]
+[ext_resource type="Texture2D" uid="uid://dndx1sgylcox3" path="res://icon.png" id="2_dcvnr"]
+[ext_resource type="Script" path="res://Player/VisualRoot.gd" id="2_ii64q"]
+[ext_resource type="Script" path="res://Player/MeleeAttack.gd" id="4_iv5t3"]
+[ext_resource type="PackedScene" uid="uid://2tf1hw26l1hj" path="res://Solarmadillo/SA-35.glb" id="5_02jxn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j4ir1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d6y6o"]
+height = 3.4
+
+[sub_resource type="SphereMesh" id="SphereMesh_3hyg2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kkfd"]
+albedo_texture = ExtResource( "2_dcvnr" )
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rkypp"]
+height = 3.6
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource( "1_ylvns" )
+speed = 3.0
+jump_force = 10.0
+fric_on_legs = 0.7
+fric_in_ball = 0.85
+
+[node name="SphereShape" type="CollisionShape3D" parent="."]
+shape = SubResource( "SphereShape3D_j4ir1" )
+script = null
+
+[node name="CapsuleShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.710706, 0)
+shape = SubResource( "CapsuleShape3D_d6y6o" )
+script = null
+
+[node name="VisualRoot" type="Node3D" parent="."]
+script = ExtResource( "2_ii64q" )
+
+[node name="BallForm" type="Node3D" parent="VisualRoot"]
+script = null
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VisualRoot/BallForm"]
+mesh = SubResource( "SphereMesh_3hyg2" )
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource( "StandardMaterial3D_7kkfd" )
+script = null
+
+[node name="LegForm" type="Node3D" parent="VisualRoot"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = null
+
+[node name="SA-35" parent="VisualRoot/LegForm" instance=ExtResource( "5_02jxn" )]
+transform = Transform3D(-1.91301, 0, -1.67241e-07, 0, 1.91301, 0, 1.67241e-07, 0, -1.91301, 0, -0.781164, 0)
+
+[node name="Body" parent="VisualRoot/LegForm/SA-35/Armature/Skeleton3D" index="1"]
+ignore_occlusion_culling = true
+gi_mode = 0
+
+[node name="Eyes" parent="VisualRoot/LegForm/SA-35/Armature/Skeleton3D" index="2"]
+ignore_occlusion_culling = true
+gi_mode = 0
+
+[node name="Hand" parent="VisualRoot/LegForm/SA-35/Armature/Skeleton3D" index="4"]
+ignore_occlusion_culling = true
+gi_mode = 0
+
+[node name="AnimationPlayer" parent="VisualRoot/LegForm/SA-35" index="1"]
+blend_times = []
+
+[node name="MeleeAttack" type="Area3D" parent="VisualRoot/LegForm"]
+transform = Transform3D(0.666667, 0, 0, 0, 0.666667, 0, 0, 0, 0.666667, 0, 0, 0)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource( "4_iv5t3" )
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VisualRoot/LegForm/MeleeAttack"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0.566987, -1.75)
+shape = SubResource( "CylinderShape3D_rkypp" )
+script = null
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
+script = null
+
+[connection signal="ball_state_changed" from="." to="VisualRoot" method="_on_Player_ball_state_changed"]
+
+[editable path="VisualRoot/LegForm/SA-35"]

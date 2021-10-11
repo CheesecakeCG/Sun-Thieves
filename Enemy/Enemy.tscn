@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf17x8y2w0r14"]
+
+[ext_resource type="Script" path="res://Enemy/Enemy.gd" id="1_k36ci"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dxeix"]
+radius = 0.7
+
+[node name="Enemy" type="CharacterBody3D"]
+collision_layer = 5
+script = ExtResource( "1_k36ci" )
+speed = 1.0
+fric = 0.6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource( "CapsuleShape3D_dxeix" )
+script = null
+
+[node name="Nav" type="NavigationAgent3D" parent="."]
+radius = 1.2
+path_max_distance = 1.5
+script = null
+
+[connection signal="velocity_computed" from="Nav" to="." method="_on_Nav_velocity_computed"]

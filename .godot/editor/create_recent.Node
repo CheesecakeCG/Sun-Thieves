@@ -1,0 +1,14 @@
+Node
+Node3D
+NavigationObstacle3D
+NavigationRegion3D
+NavigationAgent3D
+CollisionShape3D
+CharacterBody3D
+Area3D
+MeshInstance3D
+Camera3D
+VoxelGI
+OmniLight3D
+AnimationPlayer
+CSGMesh3D

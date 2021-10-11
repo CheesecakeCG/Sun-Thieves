@@ -1,0 +1,44 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dgnbj2enbptnq"
+path="res://.godot/imported/SA-35.glb-71a6b165972cd83343886f5e398200cb.scn"
+
+[deps]
+
+source_file="res://Solarmadillo/SA-35.glb"
+dest_files=["res://.godot/imported/SA-35.glb-71a6b165972cd83343886f5e398200cb.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=2
+meshes/lightmap_texel_size=0.1
+skins/use_named_skins=true
+animation/import=true
+animation/bake_reset_animation=true
+animation/fps=15
+import_script/path=""
+_subresources={
+"animations": {
+"Idle": {
+"save_to_file/enabled": true,
+"save_to_file/keep_custom_tracks": true,
+"save_to_file/path": "",
+"settings/loops": true
+}
+},
+"materials": {
+"EyeGlass": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/EyeGlass.tres"
+}
+}
+}

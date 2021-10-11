@@ -1,0 +1,7 @@
+res://Health/Health.gd
+res://Health/Health.tscn
+res://Materials/EyeGlass.tres
+res://Materials/Glass.tres
+res://Materials/RoughMat.tres
+res://OpeningCutscene.tscn
+res://default_env.tres

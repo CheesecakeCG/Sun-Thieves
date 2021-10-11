@@ -1,0 +1,52 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c70w515lmk8ib"
+path="res://.godot/imported/Cave.glb-dc05e5b64669d5ea4621a9fdf28155dc.scn"
+
+[deps]
+
+source_file="res://Cave/Model/Cave.glb"
+dest_files=["res://.godot/imported/Cave.glb-dc05e5b64669d5ea4621a9fdf28155dc.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=2
+meshes/lightmap_texel_size=0.1
+skins/use_named_skins=true
+animation/import=true
+animation/bake_reset_animation=true
+animation/fps=15
+import_script/path=""
+_subresources={
+"materials": {
+"RoughMaterial": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/RoughMat.tres"
+}
+},
+"nodes": {
+"PATH:Mball009": {
+"generate/physics": true
+},
+"PATH:Mball010": {
+"generate/physics": true
+},
+"PATH:Mball021": {
+"decomposition/precision": 10,
+"generate/physics": true
+},
+"PATH:Quad Sphere": {
+"decomposition/max_concavity": 0.2,
+"generate/physics": true
+}
+}
+}
