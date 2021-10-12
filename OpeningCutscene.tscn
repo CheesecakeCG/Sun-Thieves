@@ -236,7 +236,7 @@ light_color = Color(0.764706, 0.65098, 1, 1)
 script = null
 
 [node name="SA-35" parent="." instance=ExtResource( "4_5nm7o" )]
-transform = Transform3D(-2.59808, 0, 1.5, 0, 3, 0, -1.5, 0, -2.59808, 0, 2.4482, 7.51559)
+transform = Transform3D(-2.90102, 0, 0.764261, 0, 3, 0, -0.764261, 0, -2.90102, 0, 2.52259, 7.51559)
 
 [node name="Skeleton3D" parent="SA-35/Armature" index="0"]
 bones/1/pose = Transform3D(0.999999, -5.25266e-07, -1.49012e-07, 5.25266e-07, 1, 1.3411e-07, 1.49012e-07, -1.3411e-07, 1, 0, 0, 0)

@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf17x8y2w0r14"]
+[gd_scene load_steps=5 format=3 uid="uid://cf17x8y2w0r14"]
 
 [ext_resource type="Script" path="res://Enemy/Enemy.gd" id="1_k36ci"]
+[ext_resource type="Script" path="res://Enemy/VisualRoot.gd" id="2_fugm7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dxeix"]
 radius = 0.7
+
+[sub_resource type="BoxMesh" id="BoxMesh_0063l"]
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 5
@@ -19,6 +22,16 @@ script = null
 [node name="Nav" type="NavigationAgent3D" parent="."]
 radius = 1.2
 path_max_distance = 1.5
+script = null
+
+[node name="VisualRoot" type="Node3D" parent="."]
+script = ExtResource( "2_fugm7" )
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VisualRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource( "BoxMesh_0063l" )
+skeleton = NodePath("../..")
+surface_material_override/0 = null
 script = null
 
 [connection signal="velocity_computed" from="Nav" to="." method="_on_Nav_velocity_computed"]

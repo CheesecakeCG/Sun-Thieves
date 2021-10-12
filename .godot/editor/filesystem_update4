@@ -1,7 +1,8 @@
-res://Health/Health.gd
-res://Health/Health.tscn
-res://Materials/EyeGlass.tres
+res://Enemy/Enemy.tscn
+res://Enemy/HuntTest/HuntTest.tscn
 res://Materials/Glass.tres
 res://Materials/RoughMat.tres
 res://OpeningCutscene.tscn
+res://Player/Player.tscn
+res://Player/VisualRoot.gd
 res://default_env.tres

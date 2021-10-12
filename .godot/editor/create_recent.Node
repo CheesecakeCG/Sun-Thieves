@@ -1,13 +1,13 @@
-Node
+Camera3D
 Node3D
-NavigationObstacle3D
+MeshInstance3D
 NavigationRegion3D
+Node
+NavigationObstacle3D
 NavigationAgent3D
 CollisionShape3D
 CharacterBody3D
 Area3D
-MeshInstance3D
-Camera3D
 VoxelGI
 OmniLight3D
 AnimationPlayer
