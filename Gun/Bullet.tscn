@@ -41,7 +41,7 @@ mass = 2.32
 continuous_cd = true
 contact_monitor = true
 can_sleep = false
-linear_velocity = Vector3(0, 0, 100)
+linear_velocity = Vector3(0, 0, -100)
 linear_damp = 0.5
 angular_damp = 20.0
 script = null
@@ -53,8 +53,6 @@ script = null
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.541068, 0, 0, 0, 0.541068, 0, 0, 0, 0.541068, 0, 0, 0)
-visible = false
-amount = 32
 lifetime = 1.23
 visibility_aabb = AABB(-0.20001, -0.798577, -0.20001, 16.6418, 0.998587, 0.40002)
 process_material = SubResource( "ParticlesMaterial_xhs74" )

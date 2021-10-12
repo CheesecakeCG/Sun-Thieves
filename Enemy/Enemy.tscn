@@ -19,7 +19,7 @@ albedo_color = Color(0.254902, 1, 0, 1)
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 5
 script = ExtResource( "1_k36ci" )
-speed = 1.0
+speed = 2.0
 fric = 0.6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -49,7 +49,7 @@ hp = 100.0
 script = ExtResource( "4_6nkbf" )
 
 [node name="Timer" type="Timer" parent="EnemyGunController"]
-wait_time = 0.2
+wait_time = 0.05
 autostart = true
 script = null
 
@@ -57,7 +57,7 @@ script = null
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.33857, 0)
 enabled = false
 target_position = Vector3(0, 0, -100)
-collision_mask = 2
+collision_mask = 3
 script = null
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="EnemyGunController/RayCast3D"]
@@ -69,7 +69,6 @@ script = null
 
 [node name="Gun" parent="EnemyGunController" instance=ExtResource( "4_n4pvy" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.33857, 0)
-burst_length = -1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="EnemyGunController/Gun"]
 transform = Transform3D(0.101393, 0, 0, 0, 0.101393, 0, 0, 0, 1, 0, 0, -0.4)

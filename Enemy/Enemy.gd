@@ -20,7 +20,7 @@ func _physics_process(delta):
 	var dir3 : Vector3 = nav.get_next_location() - global_transform.origin 
 	
 	dir3.y = 0
-	motion_velocity += dir3 * Vector3(speed, jump_force, speed) 
+	motion_velocity += dir3.normalized() * Vector3(speed, jump_force, speed) 
 	
 	move_and_slide()
 	

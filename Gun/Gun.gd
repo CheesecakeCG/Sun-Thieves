@@ -13,6 +13,7 @@ var target : Node3D
 @export_flags_3d_physics var bullet_collsion_mask : int
 
 var trigger_held : bool = false
+var fire_func_active : bool = false
 
 func _ready():
 	if target_path != null:
@@ -26,19 +27,25 @@ func _process(delta):
 	look_at(target.global_transform.origin + p)
 
 func fire():
+	if fire_func_active:
+		return
+	fire_func_active = true
 	var fire_count : int = 0
 	while trigger_held:
 		if burst_length != -1 and fire_count > burst_length:
 			break
 		bang()
 		fire_count += 1
-		await get_tree().create_timer(rounds_per_minute/3600).timeout
+		await get_tree().create_timer(60/rounds_per_minute).timeout
+	fire_func_active = false
 
 signal bangged
 func bang():
 	var b : RigidDynamicBody3D = bullet.instantiate()
-	get_tree().root.add_child(b)
-	b.global_transform.basis = global_transform.basis
 	b.collision_layer = bullet_collsion_layer
 	b.collision_mask = bullet_collsion_mask
+	get_tree().root.add_child(b)
+	b.global_transform = global_transform
+	b.linear_velocity *= global_transform.basis
+
 	bangged.emit()

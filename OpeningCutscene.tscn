@@ -228,7 +228,7 @@ anims/RESET = SubResource( "Animation_wsts7" )
 anims/SceneAnimaiton = SubResource( "Animation_7k3ot" )
 blend_times = []
 script = ExtResource( "3_x3wd6" )
-next_scene = "res://Player/PlayerTestScene.tscn"
+next_scene = "res://Enemy/HuntTest/HuntTest.tscn"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81926, 8.9072, 22.1601)
