@@ -1,8 +1,11 @@
 res://Enemy/Enemy.tscn
+res://Enemy/EnemyGunController.gd
 res://Enemy/HuntTest/HuntTest.tscn
+res://Gun/Bullet.tscn
+res://Gun/Gun.gd
+res://Gun/Gun.tscn
 res://Materials/Glass.tres
 res://Materials/RoughMat.tres
 res://OpeningCutscene.tscn
 res://Player/Player.tscn
-res://Player/VisualRoot.gd
 res://default_env.tres

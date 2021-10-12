@@ -1,12 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf17x8y2w0r14"]
+[gd_scene load_steps=10 format=3 uid="uid://cf17x8y2w0r14"]
 
 [ext_resource type="Script" path="res://Enemy/Enemy.gd" id="1_k36ci"]
 [ext_resource type="Script" path="res://Enemy/VisualRoot.gd" id="2_fugm7"]
+[ext_resource type="PackedScene" uid="uid://bvgbuej72dqlp" path="res://Health/Health.tscn" id="3_cka4y"]
+[ext_resource type="Script" path="res://Enemy/EnemyGunController.gd" id="4_6nkbf"]
+[ext_resource type="PackedScene" uid="uid://br8hgj5pkott3" path="res://Gun/Gun.tscn" id="4_n4pvy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dxeix"]
 radius = 0.7
 
 [sub_resource type="BoxMesh" id="BoxMesh_0063l"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_0nluh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erqju"]
+albedo_color = Color(0.254902, 1, 0, 1)
 
 [node name="Enemy" type="CharacterBody3D"]
 collision_layer = 5
@@ -28,10 +36,46 @@ script = null
 script = ExtResource( "2_fugm7" )
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="VisualRoot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 1, 0)
 mesh = SubResource( "BoxMesh_0063l" )
 skeleton = NodePath("../..")
 surface_material_override/0 = null
 script = null
 
+[node name="Health" parent="." instance=ExtResource( "3_cka4y" )]
+hp = 100.0
+
+[node name="EnemyGunController" type="Node3D" parent="."]
+script = ExtResource( "4_6nkbf" )
+
+[node name="Timer" type="Timer" parent="EnemyGunController"]
+wait_time = 0.2
+autostart = true
+script = null
+
+[node name="RayCast3D" type="RayCast3D" parent="EnemyGunController"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.33857, 0)
+enabled = false
+target_position = Vector3(0, 0, -100)
+collision_mask = 2
+script = null
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="EnemyGunController/RayCast3D"]
+transform = Transform3D(0.0741525, 0, 0, 0, 0.0741525, 0, 0, 0, 0.731335, 0, 0.247748, -0.4)
+mesh = SubResource( "PrismMesh_0nluh" )
+skeleton = NodePath("../../Gun")
+surface_material_override/0 = SubResource( "StandardMaterial3D_erqju" )
+script = null
+
+[node name="Gun" parent="EnemyGunController" instance=ExtResource( "4_n4pvy" )]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.33857, 0)
+burst_length = -1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnemyGunController/Gun"]
+transform = Transform3D(0.101393, 0, 0, 0, 0.101393, 0, 0, 0, 1, 0, 0, -0.4)
+mesh = SubResource( "PrismMesh_0nluh" )
+surface_material_override/0 = null
+script = null
+
 [connection signal="velocity_computed" from="Nav" to="." method="_on_Nav_velocity_computed"]
+[connection signal="timeout" from="EnemyGunController/Timer" to="EnemyGunController" method="_on_Timer_timeout"]
