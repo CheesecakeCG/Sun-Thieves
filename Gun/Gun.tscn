@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://br8hgj5pkott3"]
+
+[ext_resource type="Script" path="res://Gun/Gun.gd" id="1_g01tw"]
+[ext_resource type="PackedScene" uid="uid://bnyk37fydtpgd" path="res://Gun/Bullet.tscn" id="2_dn0fx"]
+
+[node name="Gun" type="Node3D"]
+script = ExtResource( "1_g01tw" )
+bullet = ExtResource( "2_dn0fx" )
+bullet_collsion_layer = 1
+bullet_collsion_mask = 2
