@@ -23,13 +23,16 @@ func _on_Timer_timeout():
 
 func _physics_process(delta):
 	$RayCast3D.look_at(get_parent().follow.global_transform.origin)
-	if $RayCast3D.is_colliding():
-		if $RayCast3D.get_collider() == $Gun.target:
-			$Gun.trigger_held = true
-#			print("skittle skittle ", owner)
-			await $Gun.fire()
-
-			return
+	if $RayCast3D.global_transform.basis.z.dot(get_parent().follow.global_transform.basis.z) > 0:
+		$Gun.trigger_held = true
+		await $Gun.fire()
+		if $RayCast3D.is_colliding():
+			print($RayCast3D.get_collider())
+			if $RayCast3D.get_collider() == $Gun.target:
+				pass
+#				$Gun.trigger_held = true
+	#			print("skittle skittle ", owner)
+		return
 	
 	$Gun.trigger_held = false
 	

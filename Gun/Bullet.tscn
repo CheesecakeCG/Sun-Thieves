@@ -19,6 +19,7 @@ _data = [Vector2(0, 1), 0.0, -1.07113, 0, 0, Vector2(1, 0), -0.491836, 0.0, 0, 0
 curve = SubResource( "Curve_71c3i" )
 
 [sub_resource type="ParticlesMaterial" id="ParticlesMaterial_xhs74"]
+direction = Vector3(0, 0, -1)
 spread = 0.0
 gravity = Vector3(0, -1, 0)
 initial_velocity_min = 10.0
@@ -41,7 +42,7 @@ mass = 2.32
 continuous_cd = true
 contact_monitor = true
 can_sleep = false
-linear_velocity = Vector3(0, 0, -100)
+linear_velocity = Vector3(0, 0, 100)
 linear_damp = 0.5
 angular_damp = 20.0
 script = null
@@ -53,8 +54,11 @@ script = null
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.541068, 0, 0, 0, 0.541068, 0, 0, 0, 0.541068, 0, 0, 0)
+amount = 32
 lifetime = 1.23
+randomness = 0.38
 visibility_aabb = AABB(-0.20001, -0.798577, -0.20001, 16.6418, 0.998587, 0.40002)
+local_coords = false
 process_material = SubResource( "ParticlesMaterial_xhs74" )
 draw_pass_1 = SubResource( "SphereMesh_sjsaf" )
 script = null

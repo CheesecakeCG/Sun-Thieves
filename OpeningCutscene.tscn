@@ -9,7 +9,7 @@
 offsets = PackedFloat32Array(0, 0.805687, 1)
 colors = PackedColorArray(0.077, 0.011, 0.11, 1, 0.83, 0.75696, 0.6972, 1, 1, 1, 0.996078, 1)
 
-[sub_resource type="GradientTexture" id="GradientTexture_5j5by"]
+[sub_resource type="GradientTexture1D" id="GradientTexture_5j5by"]
 gradient = SubResource( "Gradient_efoi8" )
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_yrhx6"]
@@ -54,11 +54,11 @@ roughness = 0.39
 [sub_resource type="Animation" id="Animation_wsts7"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("DirectionalLight3D:light_energy")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
@@ -66,11 +66,11 @@ tracks/0/keys = {
 "values": [2.0]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("OmniLight3D:light_energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
@@ -78,11 +78,11 @@ tracks/1/keys = {
 "values": [1.0]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Ship:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
@@ -93,77 +93,9 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_7k3ot"]
 resource_name = "SceneAnimaiton"
 length = 60.0
-tracks/0/type = "transform"
-tracks/0/path = NodePath("Camera3D")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = PackedFloat32Array(-0.3, 1, -14.8467, 6.34824, 13.1282, 0, -0.746923, 0, 0.664911, 1, 1, 1, 59.1, 1, -16.6097, 6.34824, 8.89289, 0, -0.685622, 0, 0.727958, 1, 1, 1)
-tracks/1/type = "value"
-tracks/1/path = NodePath("DirectionalLight3D:light_energy")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 23.8, 47.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [2.0, 2.0, 0.3]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("OmniLight3D:light_energy")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PackedFloat32Array(4.3, 12.3, 18.8, 26.8, 33.9, 41.6, 49, 54.7),
-"transitions": PackedFloat32Array(0.0426887, 1, 0.0426887, 1, 0.0426887, 1, 0.0426887, 1),
-"update": 0,
-"values": [0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Ship:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 59.5),
-"transitions": PackedFloat32Array(0.482968, 0.189465),
-"update": 0,
-"values": [Vector3(1.77246, 40, 256), Vector3(1.77246, 30, -24.4623)]
-}
-tracks/4/type = "method"
-tracks/4/path = NodePath("AnimationPlayer")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PackedFloat32Array(60.1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"go_to_next_scene"
-}]
-}
-tracks/5/type = "animation"
-tracks/5/path = NodePath("SA-35/AnimationPlayer")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"clips": PackedStringArray("Idle"),
-"times": PackedFloat32Array(0)
-}
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81902, -140.065)
-script = null
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.0475043, -0.523498, 0.850702, -0.270661, 0.813055, 0.515446, -0.961502, -0.254737, -0.103067, 0, 0, 0)
@@ -173,11 +105,9 @@ light_angular_distance = 0.51
 shadow_enabled = true
 shadow_blur = 0.65
 directional_shadow_max_distance = 250.0
-script = null
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( "Environment_3eu5t" )
-script = null
 
 [node name="Cave" parent="." instance=ExtResource( "1_8x3rk" )]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.63996)
@@ -186,14 +116,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.63996)
 transform = Transform3D(4.60086, 0, 0, 0, 0.4, 0, 0, 0, 2.97053, -0.677182, 4.63866, 18.1717)
 gi_mode = 1
 mesh = SubResource( "BoxMesh_g62k1" )
-script = null
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
 transform = Transform3D(4.60086, 0, 0, 0, -1.74846e-08, 2.97053, 0, -0.4, -1.29846e-07, -0.677182, 7.93866, 18.1717)
 gi_mode = 1
 mesh = SubResource( "BoxMesh_g62k1" )
 material = SubResource( "StandardMaterial3D_c2jb6" )
-script = null
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="CSGMesh3D2"]
 transform = Transform3D(0.208676, 0, 0, 0, 1, 1.33706e-07, 0, 2.42441e-09, 0.588108, 0.302361, 0, -0.477112)
@@ -201,11 +129,9 @@ gi_mode = 1
 operation = 2
 mesh = SubResource( "BoxMesh_g62k1" )
 material = SubResource( "StandardMaterial3D_c2jb6" )
-script = null
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.114905, 0, -0.993377, 0, 1, 0, 0.993377, 0, -0.114905, -14.8512, 6.34824, 13.1173)
-script = null
 
 [node name="Ship" parent="." instance=ExtResource( "2_08gki" )]
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 1.77246, 16.8179, 137.188)
@@ -226,57 +152,125 @@ gi_mode = 2
 autoplay = "SceneAnimaiton"
 anims/RESET = SubResource( "Animation_wsts7" )
 anims/SceneAnimaiton = SubResource( "Animation_7k3ot" )
-blend_times = []
 script = ExtResource( "3_x3wd6" )
 next_scene = "res://Enemy/HuntTest/HuntTest.tscn"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.81926, 8.9072, 22.1601)
 light_color = Color(0.764706, 0.65098, 1, 1)
-script = null
 
 [node name="SA-35" parent="." instance=ExtResource( "4_5nm7o" )]
 transform = Transform3D(-2.90102, 0, 0.764261, 0, 3, 0, -0.764261, 0, -2.90102, 0, 2.52259, 7.51559)
 
 [node name="Skeleton3D" parent="SA-35/Armature" index="0"]
-bones/1/pose = Transform3D(0.999999, -5.25266e-07, -1.49012e-07, 5.25266e-07, 1, 1.3411e-07, 1.49012e-07, -1.3411e-07, 1, 0, 0, 0)
-bones/2/pose = Transform3D(1, -6.03497e-07, -2.18395e-07, 6.03497e-07, 1, 1.19209e-07, 2.18395e-07, -1.19209e-07, 1, 0, 0, 0)
-bones/3/pose = Transform3D(1, 1.28448e-05, -7.84174e-06, -1.28448e-05, 1, -5.06539e-07, 7.84174e-06, 5.0664e-07, 1, 0, 0, 0)
-bones/4/pose = Transform3D(1, 1.22786e-05, -1.42269e-05, -1.22786e-05, 1, 1.79204e-06, 1.42269e-05, -1.79186e-06, 1, 0, 0, 0)
-bones/5/pose = Transform3D(1, 0, -1.16415e-10, 0, 1, 0, 1.16415e-10, 0, 1, 0, 0, 0)
-bones/6/pose = Transform3D(1, -5.82077e-11, 2.32831e-10, 5.82077e-11, 1, 0, -2.32831e-10, 1.35525e-20, 1, 0, 0, 0)
-bones/7/pose = Transform3D(1, -2.98023e-08, -7.45058e-09, 2.98023e-08, 1, -2.22045e-16, 7.45058e-09, 0, 1, 0, 0, 0)
-bones/8/pose = Transform3D(1, -3.49246e-10, -2.32831e-10, 3.49246e-10, 1, -2.71051e-20, 2.32831e-10, -5.42101e-20, 1, 0, 0, 0)
-bones/9/pose = Transform3D(1, 3.49246e-10, 2.32831e-10, -3.49246e-10, 1, 5.96046e-08, -2.32831e-10, -5.96046e-08, 1, 0, 0, 0)
-bones/10/pose = Transform3D(1, -4.48969e-10, -2.34962e-10, 4.48969e-10, 1, 2.79397e-09, 2.34962e-10, -2.79397e-09, 1, 0, 0, 0)
-bones/11/pose = Transform3D(1, -4.49962e-10, -2.34877e-10, 4.49962e-10, 1, 2.79397e-09, 2.34877e-10, -2.79397e-09, 1, 0, 0, 0)
-bones/12/pose = Transform3D(1, 2.6077e-08, -3.72529e-08, -2.6077e-08, 1, 5.0307e-16, 3.72529e-08, 4.68375e-16, 1, 0, 0, 0)
-bones/13/pose = Transform3D(1, 2.98023e-08, -6.70552e-08, -2.98023e-08, 1, -1.19209e-07, 6.70552e-08, 1.19209e-07, 1, 0, 0, 0)
-bones/14/pose = Transform3D(1, 3.93018e-07, 3.42727e-07, -3.93018e-07, 1, 1.58325e-07, -3.42727e-07, -1.58325e-07, 1, 0, 0, 0)
-bones/15/pose = Transform3D(1, 8.9407e-08, -1.49012e-08, -8.9407e-08, 1, 2.98023e-08, 1.49012e-08, -2.98023e-08, 1, 0, 0, 0)
-bones/16/pose = Transform3D(1, -1.78814e-07, 5.96046e-08, 1.78814e-07, 1, 1.15463e-14, -5.96046e-08, -8.88179e-16, 1, 0, 0, 0)
-bones/17/pose = Transform3D(1, 1.63275e-07, -2.98023e-08, -1.63275e-07, 1, -1.16615e-08, 2.98023e-08, 1.16615e-08, 1, 0, 0, 0)
-bones/18/pose = Transform3D(1, -5.81145e-07, 4.69386e-07, 5.81145e-07, 1, 5.58796e-08, -4.69387e-07, -5.58793e-08, 1, 0, 0, 0)
-bones/19/pose = Transform3D(1, 1.71363e-07, 8.19564e-08, -1.71363e-07, 1, 2.08616e-07, -8.19564e-08, -2.08616e-07, 1, 0, 0, 0)
-bones/20/pose = Transform3D(1, 4.47035e-08, 2.98023e-08, -4.47035e-08, 1, -2.98023e-08, -2.98023e-08, 2.98023e-08, 1, 0, 0, 0)
-bones/21/pose = Transform3D(1, -7.82311e-08, -8.9407e-08, 7.82311e-08, 1, 8.19564e-08, 8.9407e-08, -8.19564e-08, 1, 0, 0, 0)
-bones/22/pose = Transform3D(1, -1.58325e-08, 2.14204e-08, 1.58325e-08, 1, -2.98023e-08, -2.14204e-08, 2.98023e-08, 1, 0, 0, 0)
-bones/23/pose = Transform3D(1, -2.38419e-07, 1.49012e-07, 2.38419e-07, 1, 1.19209e-07, -1.49012e-07, -1.19209e-07, 1, 0, 0, 0)
-bones/24/pose = Transform3D(1, -2.98023e-08, 2.98023e-08, 2.98023e-08, 1, -5.96046e-08, -2.98023e-08, 5.96046e-08, 1, 0, 0, 0)
-bones/25/pose = Transform3D(1, 2.98023e-08, -3.10862e-15, -2.98023e-08, 1, -1.19209e-07, -4.44089e-16, 1.19209e-07, 1, 0, 0, 0)
-bones/26/pose = Transform3D(1, 5.96047e-08, -1.49012e-08, -5.96046e-08, 1, -5.96046e-08, 1.49012e-08, 5.96046e-08, 1, 0, 0, 0)
-bones/27/pose = Transform3D(1, 4.43309e-07, 8.9407e-08, -4.4331e-07, 1, 1.63913e-07, -8.9407e-08, -1.63913e-07, 1, 0, 0, 0)
-bones/28/pose = Transform3D(1, 5.34579e-07, 1.34576e-07, -5.34579e-07, 1, 1.19209e-07, -1.34576e-07, -1.19209e-07, 1, 0, 0, 0)
-bones/29/pose = Transform3D(1, -1.06692e-05, 6.59191e-06, 1.06692e-05, 1, -7.7479e-07, -6.5919e-06, 7.7486e-07, 1, 0, 0, 0)
-bones/30/pose = Transform3D(1, -1.01924e-05, 9.43985e-06, 1.01924e-05, 1, 3.26718e-06, -9.43988e-06, -3.26708e-06, 1, 0, 0, 0)
-bones/31/pose = Transform3D(1, -2.79397e-09, -1.39698e-09, 2.79397e-09, 1, 5.96047e-08, 1.39698e-09, -5.96046e-08, 1, 0, 0, 0)
-bones/32/pose = Transform3D(1, -2.10639e-09, 2.03727e-10, 2.10639e-09, 1, -1.49012e-08, -2.03727e-10, 1.49012e-08, 1, 0, 0, 0)
-bones/33/pose = Transform3D(1, 1.28057e-09, 2.32831e-10, -1.28057e-09, 1, -6.94567e-20, -2.32831e-10, -2.28699e-19, 1, 0, 0, 0)
-bones/34/pose = Transform3D(1, -2.91038e-11, 1.0842e-19, 2.91038e-11, 1, 1.57772e-30, -1.0842e-19, 1.57772e-30, 1, 0, 0, 0)
+bones/0/position = Vector3(0, 0, 0)
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/position = Vector3(0, 0, 0)
+bones/1/rotation = Quaternion(0, 0, 0, 1)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/position = Vector3(0, 0, 0)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(0, 0, 0)
+bones/3/rotation = Quaternion(0, 0, 0, 1)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/position = Vector3(0, 0, 0)
+bones/4/rotation = Quaternion(0, 0, 0, 1)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/position = Vector3(0, 0, 0)
+bones/5/rotation = Quaternion(0, 0, 0, 1)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/position = Vector3(0, 0, 0)
+bones/6/rotation = Quaternion(0, 0, 0, 1)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/position = Vector3(0, 0, 0)
+bones/7/rotation = Quaternion(0, 0, 0, 1)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/position = Vector3(0, 0, 0)
+bones/8/rotation = Quaternion(0, 0, 0, 1)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/position = Vector3(0, 0, 0)
+bones/9/rotation = Quaternion(0, 0, 0, 1)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/position = Vector3(0, 0, 0)
+bones/10/rotation = Quaternion(0, 0, 0, 1)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/position = Vector3(0, 0, 0)
+bones/11/rotation = Quaternion(0, 0, 0, 1)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/position = Vector3(0, 0, 0)
+bones/12/rotation = Quaternion(0, 0, 0, 1)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/position = Vector3(0, 0, 0)
+bones/13/rotation = Quaternion(0, 0, 0, 1)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/position = Vector3(0, 0, 0)
+bones/14/rotation = Quaternion(0, 0, 0, 1)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/position = Vector3(0, 0, 0)
+bones/15/rotation = Quaternion(0, 0, 0, 1)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/position = Vector3(0, 0, 0)
+bones/16/rotation = Quaternion(0, 0, 0, 1)
+bones/16/scale = Vector3(1, 1, 1)
+bones/17/position = Vector3(0, 0, 0)
+bones/17/rotation = Quaternion(0, 0, 0, 1)
+bones/17/scale = Vector3(1, 1, 1)
+bones/18/position = Vector3(0, 0, 0)
+bones/18/rotation = Quaternion(0, 0, 0, 1)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/position = Vector3(0, 0, 0)
+bones/19/rotation = Quaternion(0, 0, 0, 1)
+bones/19/scale = Vector3(1, 1, 1)
+bones/20/position = Vector3(0, 0, 0)
+bones/20/rotation = Quaternion(0, 0, 0, 1)
+bones/20/scale = Vector3(1, 1, 1)
+bones/21/position = Vector3(0, 0, 0)
+bones/21/rotation = Quaternion(0, 0, 0, 1)
+bones/21/scale = Vector3(1, 1, 1)
+bones/22/position = Vector3(0, 0, 0)
+bones/22/rotation = Quaternion(0, 0, 0, 1)
+bones/22/scale = Vector3(1, 1, 1)
+bones/23/position = Vector3(0, 0, 0)
+bones/23/rotation = Quaternion(0, 0, 0, 1)
+bones/23/scale = Vector3(1, 1, 1)
+bones/24/position = Vector3(0, 0, 0)
+bones/24/rotation = Quaternion(0, 0, 0, 1)
+bones/24/scale = Vector3(1, 1, 1)
+bones/25/position = Vector3(0, 0, 0)
+bones/25/rotation = Quaternion(0, 0, 0, 1)
+bones/25/scale = Vector3(1, 1, 1)
+bones/26/position = Vector3(0, 0, 0)
+bones/26/rotation = Quaternion(0, 0, 0, 1)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/position = Vector3(0, 0, 0)
+bones/27/rotation = Quaternion(0, 0, 0, 1)
+bones/27/scale = Vector3(1, 1, 1)
+bones/28/position = Vector3(0, 0, 0)
+bones/28/rotation = Quaternion(0, 0, 0, 1)
+bones/28/scale = Vector3(1, 1, 1)
+bones/29/position = Vector3(0, 0, 0)
+bones/29/rotation = Quaternion(0, 0, 0, 1)
+bones/29/scale = Vector3(1, 1, 1)
+bones/30/position = Vector3(0, 0, 0)
+bones/30/rotation = Quaternion(0, 0, 0, 1)
+bones/30/scale = Vector3(1, 1, 1)
+bones/31/position = Vector3(0, 0, 0)
+bones/31/rotation = Quaternion(0, 0, 0, 1)
+bones/31/scale = Vector3(1, 1, 1)
+bones/32/position = Vector3(0, 0, 0)
+bones/32/rotation = Quaternion(0, 0, 0, 1)
+bones/32/scale = Vector3(1, 1, 1)
+bones/33/position = Vector3(0, 0, 0)
+bones/33/rotation = Quaternion(0, 0, 0, 1)
+bones/33/scale = Vector3(1, 1, 1)
+bones/34/position = Vector3(0, 0, 0)
+bones/34/rotation = Quaternion(0, 0, 0, 1)
+bones/34/scale = Vector3(1, 1, 1)
 
 [node name="AnimationPlayer" parent="SA-35" index="1"]
 autoplay = "Idle"
-blend_times = []
 
 [editable path="Cave"]
 [editable path="Ship"]

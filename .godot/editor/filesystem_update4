@@ -1,11 +1,4 @@
-res://Enemy/Enemy.gd
-res://Enemy/Enemy.tscn
-res://Enemy/EnemyGunController.gd
-res://Enemy/HuntTest/HuntTest.tscn
-res://Gun/Bullet.tscn
-res://Gun/Gun.gd
 res://Materials/Glass.tres
 res://Materials/RoughMat.tres
 res://OpeningCutscene.tscn
-res://Player/MeleeAttack.gd
 res://default_env.tres
